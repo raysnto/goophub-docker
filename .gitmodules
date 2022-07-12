@@ -1,0 +1,6 @@
+[submodule "goophub-frontend"]
+	path = goophub-frontend
+	url = https://github.com/raysnto/goophub-frontend.git
+[submodule "goophub-backend"]
+	path = goophub-backend
+	url = https://github.com/raysnto/goophub-backend.git
