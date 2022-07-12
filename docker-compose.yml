@@ -2,14 +2,10 @@ version: '3'
 services:
   goophup-frontend:
     build: goophub-frontend/
-    volumes:
-      - ./goophub-frontend:/goophub-frontend
     ports:
       - 4200:4200
 
   goophub-backend:
     build: goophub-backend/
-    volumes:
-      - ./goophub-backend:/goophub-backend
     ports:
       - 8080:8080
