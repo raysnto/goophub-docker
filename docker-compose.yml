@@ -1,11 +1,32 @@
 version: '3'
 services:
   goophup-frontend:
-    build: goophub-frontend/
+    image: node:11.15.0
+    volumes:
+      - ./goophub-frontend:/goophub-frontend
+      - ./goophub-frontend-entrypoint.sh:/goophub-frontend/goophub-frontend-entrypoint.sh
+    working_dir: /goophub-frontend
+    entrypoint: sh ./goophub-frontend-entrypoint.sh 
     ports:
       - 4200:4200
-
+    networks:
+      - goophub
   goophub-backend:
-    build: goophub-backend/
+    image: openjdk:8-jdk-alpine
+    working_dir: /goophub-backend
+    entrypoint: sh ./goophub-backend-entrypoint.sh
+    volumes:
+      - ./goophub-backend:/goophub-backend
+      - ./goophub-backend-entrypoint.sh:/goophub-backend/goophub-backend-entrypoint.sh
     ports:
       - 8080:8080
+    networks:
+      - goophub
+networks:
+  goophub:
+    driver: bridge
+    external: true
+  
+      
+      
+       
